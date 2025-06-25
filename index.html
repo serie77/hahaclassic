@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haha, Classic</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Comic+Neue:wght@400;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            height: 100vh;
+            background: linear-gradient(45deg, #1a1a2e, #16213e, #0f3460, #533a7b, #2d1b69);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
+            font-family: 'Comic Neue', cursive;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .main-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: clamp(3rem, 8vw, 8rem);
+            color: #a855f7;
+            text-shadow: 
+                4px 4px 0px #7c3aed,
+                8px 8px 0px #6d28d9,
+                12px 12px 20px rgba(0,0,0,0.8);
+            transform: rotate(-5deg);
+            animation: bounce 2s ease-in-out infinite;
+            margin-bottom: 2rem;
+            text-align: center;
+            line-height: 0.9;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) rotate(-5deg); }
+            40% { transform: translateY(-20px) rotate(-3deg); }
+            60% { transform: translateY(-10px) rotate(-7deg); }
+        }
+        
+        .gif-container {
+            position: relative;
+            margin: 2rem 0;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            border: 5px solid #a855f7;
+            animation: wiggle 3s ease-in-out infinite;
+        }
+        
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(1deg); }
+            75% { transform: rotate(-1deg); }
+        }
+        
+        .classic-gif {
+            max-width: 400px;
+            max-height: 300px;
+            width: auto;
+            height: auto;
+            display: block;
+        }
+        
+        .meme-text {
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            color: #e0e7ff;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.9);
+            text-align: center;
+            margin: 1rem;
+            font-weight: bold;
+            animation: flash 4s ease-in-out infinite;
+        }
+        
+        @keyframes flash {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+        
+        .contract-section {
+            position: absolute;
+            top: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(168, 85, 247, 0.15);
+            border: 2px solid #a855f7;
+            border-radius: 15px;
+            padding: 0.8rem 1.5rem;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .contract-section:hover {
+            background: rgba(168, 85, 247, 0.25);
+            transform: translateX(-50%) scale(1.05);
+            box-shadow: 0 12px 48px rgba(168, 85, 247, 0.3);
+        }
+        
+        .ca-label {
+            font-size: 0.8rem;
+            color: #c7d2fe;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+        
+        .ca-address {
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            word-break: break-all;
+        }
+        
+        .copy-feedback {
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #10b981;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            opacity: 0;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+        
+        .copy-feedback.show {
+            opacity: 1;
+            top: -50px;
+        }
+        
+        .cigarette-rain {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .cigarette {
+            position: absolute;
+            width: 4px;
+            height: 30px;
+            background: linear-gradient(to bottom, #f4f4f4 0%, #e8e8e8 70%, #ff6b35 100%);
+            border-radius: 2px;
+            animation: fall linear infinite;
+            opacity: 0.8;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .cigarette::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 4px;
+            background: #8b4513;
+            border-radius: 1px;
+        }
+        
+        @keyframes fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.9;
+            }
+            90% {
+                opacity: 0.9;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .click-me {
+            position: absolute;
+            bottom: 2rem;
+            font-size: 1.2rem;
+            color: #c7d2fe;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.9);
+            animation: pulse 2s ease-in-out infinite;
+            cursor: pointer;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .sound-button {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: #a855f7;
+            border: 3px solid #7c3aed;
+            padding: 0.5rem;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.6);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .sound-button:hover {
+            background: #9333ea;
+            transform: scale(1.1);
+            box-shadow: 0 8px 16px rgba(168, 85, 247, 0.4);
+        }
+        
+        .sound-button img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        
+        @media (max-width: 768px) {
+            .classic-gif {
+                max-width: 300px;
+                max-height: 200px;
+            }
+            
+            .sound-button {
+                top: 1rem;
+                right: 1rem;
+                width: 50px;
+                height: 50px;
+                padding: 0.4rem;
+            }
+            
+            .contract-section {
+                top: 1rem;
+                padding: 0.6rem 1rem;
+                max-width: 80vw;
+                gap: 0.5rem;
+            }
+            
+            .ca-label {
+                font-size: 0.7rem;
+            }
+            
+            .ca-address {
+                font-size: 0.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cigarette-rain" id="cigaretteRain"></div>
+    
+    <button class="sound-button" onclick="playSound()" title="Quack! 🦆">
+        <img src="icon.jpg" alt="Duck icon">
+    </button>
+    
+    <h1 class="main-title">HAHA,<br>CLASSIC...</h1>
+    
+    <div class="gif-container">
+        <img src="classic.gif" alt="Classic meme GIF" class="classic-gif">
+    </div>
+    
+    <div class="meme-text">
+        When someone tries to be funny but it's just... classic 🚬
+    </div>
+    
+    <div class="contract-section" onclick="copyToClipboard()">
+        <div class="copy-feedback" id="copyFeedback">Copied! 📋</div>
+        <div class="ca-label">Contract Address</div>
+        <div class="ca-address" id="contractAddress">TBD</div>
+    </div>
+    
+    <div class="click-me" onclick="createExplosion()">
+        Click anywhere for more chaos! 🎉
+    </div>
+    
+    <audio id="quackSound" preload="auto">
+        <source src="duckquack.mp3" type="audio/mpeg">
+    </audio>
+    
+    <script>
+        // Create cigarette rain
+        const cigaretteRain = document.getElementById('cigaretteRain');
+        
+        function createCigarette() {
+            const cigarette = document.createElement('div');
+            cigarette.className = 'cigarette';
+            cigarette.style.left = Math.random() * 100 + '%';
+            cigarette.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            cigarette.style.animationDelay = Math.random() * 2 + 's';
+            // Add slight rotation for more realistic fall
+            cigarette.style.transform = `rotate(${Math.random() * 30 - 15}deg)`;
+            cigaretteRain.appendChild(cigarette);
+            
+            setTimeout(() => {
+                cigarette.remove();
+            }, 5000);
+        }
+        
+        // Create cigarette every 600ms
+        setInterval(createCigarette, 600);
+        
+        // Click explosion effect
+        function createExplosion() {
+            for (let i = 0; i < 25; i++) {
+                setTimeout(() => {
+                    createCigarette();
+                }, i * 40);
+            }
+            
+            // Add screen shake
+            document.body.style.animation = 'none';
+            document.body.offsetHeight; // Trigger reflow
+            document.body.style.animation = 'shake 0.5s ease-in-out';
+            
+            setTimeout(() => {
+                document.body.style.animation = '';
+            }, 500);
+        }
+        
+        // Copy contract address to clipboard
+        function copyToClipboard() {
+            const contractAddress = document.getElementById('contractAddress').textContent;
+            const feedback = document.getElementById('copyFeedback');
+            
+            navigator.clipboard.writeText(contractAddress).then(() => {
+                feedback.classList.add('show');
+                setTimeout(() => {
+                    feedback.classList.remove('show');
+                }, 2000);
+            }).catch(err => {
+                console.log('Copy failed:', err);
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = contractAddress;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                feedback.classList.add('show');
+                setTimeout(() => {
+                    feedback.classList.remove('show');
+                }, 2000);
+            });
+        }
+        
+        // Add shake animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                25% { transform: translateX(-10px); }
+                75% { transform: translateX(10px); }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Click anywhere for explosion
+        document.addEventListener('click', function(e) {
+            if (!e.target.classList.contains('sound-button') && 
+                !e.target.closest('.sound-button') && 
+                !e.target.closest('.contract-section')) {
+                createExplosion();
+            }
+        });
+        
+        // Play real duck quack sound
+        function playSound() {
+            const audio = document.getElementById('quackSound');
+            audio.currentTime = 0; // Reset to beginning
+            audio.play().catch(e => console.log('Sound play failed:', e));
+        }
+        
+        // Random title changes
+        const titles = [
+            'Haha, Classic! 😂',
+            'Much Wow! 🤩',
+            'Very Meme! 🔥',
+            'Such Classic! 💯',
+            'Big Brain Time! 🧠',
+            'Quack! 🦆'
+        ];
+        
+        setInterval(() => {
+            document.title = titles[Math.floor(Math.random() * titles.length)];
+        }, 3000);
+        
+        // Konami code easter egg
+        let konamiCode = [];
+        const konamiSequence = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+        
+        document.addEventListener('keydown', function(e) {
+            konamiCode.push(e.keyCode);
+            if (konamiCode.length > konamiSequence.length) {
+                konamiCode.shift();
+            }
+            
+            if (konamiCode.join(',') === konamiSequence.join(',')) {
+                document.body.style.filter = 'hue-rotate(180deg) saturate(2)';
+                for (let i = 0; i < 50; i++) {
+                    setTimeout(createCigarette, i * 100);
+                }
+                // Play multiple quacks for the easter egg
+                for (let i = 0; i < 3; i++) {
+                    setTimeout(playSound, i * 500);
+                }
+                setTimeout(() => {
+                    document.body.style.filter = '';
+                }, 5000);
+            }
+        });
+    </script>
+</body>
+</html> 
