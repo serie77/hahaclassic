@@ -217,10 +217,17 @@
             50% { transform: scale(1.1); }
         }
         
-        .sound-button {
+        .top-right-buttons {
             position: absolute;
             top: 2rem;
             right: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            z-index: 10;
+        }
+
+        .sound-button {
             background: #a855f7;
             border: 3px solid #7c3aed;
             padding: 0.5rem;
@@ -232,18 +239,39 @@
             transition: all 0.3s ease;
             overflow: hidden;
         }
-        
+
         .sound-button:hover {
             background: #9333ea;
             transform: scale(1.1);
             box-shadow: 0 8px 16px rgba(168, 85, 247, 0.4);
         }
-        
+
         .sound-button img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             border-radius: 50%;
+        }
+
+        .eth-diamond {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            filter: drop-shadow(0 6px 12px rgba(0,0,0,0.6));
+            transition: all 0.3s ease;
+        }
+
+        .eth-diamond:hover {
+            transform: scale(1.1) rotate(5deg);
+            filter: drop-shadow(0 8px 16px rgba(168, 85, 247, 0.5));
+        }
+
+        .eth-diamond img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
         
         @media (max-width: 768px) {
@@ -252,12 +280,21 @@
                 max-height: 200px;
             }
             
-            .sound-button {
+            .top-right-buttons {
                 top: 1rem;
                 right: 1rem;
+                gap: 0.6rem;
+            }
+
+            .sound-button {
                 width: 50px;
                 height: 50px;
                 padding: 0.4rem;
+            }
+
+            .eth-diamond {
+                width: 50px;
+                height: 50px;
             }
             
             .contract-section {
@@ -280,9 +317,14 @@
 <body>
     <div class="cigarette-rain" id="cigaretteRain"></div>
     
-    <button class="sound-button" onclick="playSound()" title="Quack! 🦆">
-        <img src="icon.jpg" alt="Duck icon">
-    </button>
+    <div class="top-right-buttons">
+        <div class="eth-diamond" title="Ethereum">
+            <img src="eth-diamond-(white).svg" alt="ETH diamond">
+        </div>
+        <button class="sound-button" onclick="playSound()" title="Quack! 🦆">
+            <img src="icon.jpg" alt="Duck icon">
+        </button>
+    </div>
     
     <h1 class="main-title">HAHA,<br>CLASSIC...</h1>
     
