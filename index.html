@@ -273,6 +273,32 @@
             height: 100%;
             object-fit: contain;
         }
+
+        .x-link {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #000;
+            border: 3px solid #7c3aed;
+            border-radius: 50%;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.6);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .x-link:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 16px rgba(168, 85, 247, 0.4);
+            background: #1a1a1a;
+        }
+
+        .x-link svg {
+            width: 55%;
+            height: 55%;
+            fill: #fff;
+        }
         
         @media (max-width: 768px) {
             .classic-gif {
@@ -293,6 +319,11 @@
             }
 
             .eth-diamond {
+                width: 50px;
+                height: 50px;
+            }
+
+            .x-link {
                 width: 50px;
                 height: 50px;
             }
@@ -318,6 +349,11 @@
     <div class="cigarette-rain" id="cigaretteRain"></div>
     
     <div class="top-right-buttons">
+        <a href="https://x.com/hahaclassiceth#" target="_blank" rel="noopener noreferrer" class="x-link" title="Follow on X">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+        </a>
         <div class="eth-diamond" title="Ethereum">
             <img src="eth-diamond-(white).svg" alt="ETH diamond">
         </div>
